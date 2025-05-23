@@ -1,7 +1,9 @@
 {
   "name": "plv8-test-harness",
+  "description": "Running plv8 tests within PostgreSQL",
+  "author": "Louis-Philippe Perron",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "index.ts",
   "bin": {
     "harness": "bin/harness.ts"
   },
@@ -10,9 +12,13 @@
     "test": "jest",
     "harness": "./bin/harness.ts"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "files": [
+    "bin",
+    "lib",
+    "index.ts",
+    "stubs"
+  ],
+  "license": "MIT",
   "dependencies": {
     "ansi-color": "^0.2.1",
     "bun": "^1.2.14",
@@ -33,5 +39,10 @@
     "ts-jest": "^29.3.4",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1"
+  },
+  "homepage": "https://github.com/lp/plv8-test-harness/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lp/plv8-test-harness.git"
   }
 }
