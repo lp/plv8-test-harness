@@ -1,6 +1,7 @@
 {
   "name": "plv8-test-harness",
   "description": "Running plv8 tests within PostgreSQL",
+  "keywords": ["plv8", "plv8-test", "test", "testing", "PostgreSQL"],
   "author": "Louis-Philippe Perron",
   "version": "0.0.1",
   "main": "index.ts",
