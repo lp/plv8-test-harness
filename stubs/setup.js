@@ -42,11 +42,19 @@ var assert = {
 // initial setup
 var tests = [ ];
 
-// equinox namespace
-equinox = {
+// harness namespace
+harness = {
   log: function ( ) {
     var args = Array.prototype.slice.call(arguments);
     plv8.elog(NOTICE, args.join(' '));
+  },
+  debug: function ( ) {
+    var args = Array.prototype.slice.call(arguments);
+    plv8.elog(DEBUG1, args.join(' '));
+  },
+  info: function ( ) {
+    var args = Array.prototype.slice.call(arguments);
+    plv8.elog(INFO, args.join(' '));
   },
   warn: function ( ) {
     var args = Array.prototype.slice.call(arguments);
@@ -58,19 +66,21 @@ equinox = {
   }
 };
 
-// console methods - deprecated as of 1.1.0
 console = {
   log: function ( ) {
-    equinox.warn('DEPRICATION WARNING: console.log() has been deprecated, use equinox.log instead.');
-    equinox.log.call(arguments);
+    harness.log.call(arguments);
+  },
+  debug: function ( ) {
+    harness.debug.call(arguments);
+  },
+  info: function ( ) {
+    harness.info.call(arguments);
   },
   warn: function ( ) {
-    equinox.warn('DEPRICATION WARNING: console.warn() has been deprecated, use equinox.log instead.');
-    equinox.warn.call(arguments);
+    harness.warn.call(arguments);
   },
   error: function ( ) {
-    equinox.warn('DEPRICATION WARNING: console.error() has been deprecated, use equinox.log instead.');
-    equinox.error.call(arguments);
+    harness.error.call(arguments);
   }
 };
 

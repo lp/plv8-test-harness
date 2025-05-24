@@ -18,7 +18,7 @@ export function makeFuncname (filename) {
 async function makePLV8Function(filePath: string, content: string): Promise<void> {
     const filename = filePath.split('/').pop()!;
     const funcname = makeFuncname(filename);
-    let sql = `CREATE OR REPLACE FUNCTION equinox.${funcname}( ) RETURNS JSON AS $$\n`;
+    let sql = `CREATE OR REPLACE FUNCTION harness.${funcname}( ) RETURNS JSON AS $$\n`;
 
     sql += setup;
     sql += content;
@@ -56,7 +56,7 @@ export async function runner(filePath: string): Promise<any> {
     const funcname = makeFuncname(filename);
 
     await query("BEGIN");
-    const sql = `SELECT equinox.${funcname}() AS result`;
+    const sql = `SELECT harness.${funcname}() AS result`;
     const data = await query(sql);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

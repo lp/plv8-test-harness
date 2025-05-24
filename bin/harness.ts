@@ -27,7 +27,7 @@ const password = process.env.PGPASSWORD || "postgres";
 const database = process.env.PGDATABASE || "postgres";
 
 await connect(database, host, user, password, port);
-await query('CREATE SCHEMA IF NOT EXISTS equinox');
+await query('CREATE SCHEMA IF NOT EXISTS harness');
 
 const files = argv.files as string[];
 const results = { };
@@ -41,7 +41,7 @@ for (const file of files) {
     }
 }
 
-await query("DROP SCHEMA equinox CASCADE");
+await query("DROP SCHEMA harness CASCADE");
 await end();
 
 report(results);
